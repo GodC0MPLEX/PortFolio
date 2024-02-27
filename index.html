@@ -405,6 +405,31 @@
 <!-- scroll top btn -->
 <a href="#home" aria-label="ScrollTop" class="fas fa-angle-up" id="scroll-top"></a>
 <!-- scroll back to top -->
+     <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function updateActiveLink() {
+        // Get the current URL hash (e.g., "#home", "#about", etc.)
+        var currentHash = window.location.hash;
+
+        // Remove the "active" class from all links
+        document.querySelectorAll('.navbar a').forEach(function (link) {
+          link.classList.remove('active');
+        });
+
+        // Find the link with the href matching the current hash and add the "active" class
+        var activeLink = document.querySelector('.navbar a[href="' + currentHash + '"]');
+        if (activeLink) {
+          activeLink.classList.add('active');
+        }
+      }
+
+      // Initial update
+      updateActiveLink();
+
+      // Listen for hash changes and update the active link accordingly
+      window.addEventListener('hashchange', updateActiveLink);
+    });
+  </script>
 
 </body>
 </html>
